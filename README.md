@@ -65,9 +65,17 @@ The API is hosted on a free server, which is why the first time you call the API
 - **is_archived** - call is archived or not
 - **call_type** - can be a `missed`, `answered` or `voicemail` call.
 
+# Node
+```
+nvm install v14
+```
 
 # Vercel
 [AirCall](https://air-call-mauve.vercel.app/)
+```
+npm i -g vercel@latest
+vercel --version
+```
 - Push at github
 - [Vercel Setting](https://github.com/electerious/Ackee/blob/master/docs/Get%20started.md#2-configure-ackee-1)
   - Add New `Project`

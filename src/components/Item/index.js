@@ -4,8 +4,10 @@ import { Link, useParams } from 'react-router-dom';
 import Button from '../Button';
 import Detail from '../Detail';
 
-const ENDPOINT_URL =
-  'https://charming-bat-singlet.cyclic.app/https://cerulean-marlin-wig.cyclic.app';
+// const ENDPOINT_URL =
+//   'https://charming-bat-singlet.cyclic.app/https://cerulean-marlin-wig.cyclic.app';
+
+const ENDPOINT_URL = process.env.REACT_APP_DATABASE_URL;
 
 function Item({ activity, updateActivity }) {
   console.log('Item: ', activity, updateActivity);
