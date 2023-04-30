@@ -2,8 +2,12 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import List from '../../components/List';
 
-const ENDPOINT_URL =
-  'https://charming-bat-singlet.cyclic.app/https://cerulean-marlin-wig.cyclic.app';
+// const ENDPOINT_URL =
+//   'https://charming-bat-singlet.cyclic.app/https://cerulean-marlin-wig.cyclic.app';
+
+const ENDPOINT_URL = process.env.REACT_APP_DATABASE_URL;
+
+// console.log('ENDPOINT_URL', ENDPOINT_URL);
 
 // const activityApi = {
 //   async getAll() {
@@ -21,7 +25,7 @@ const ENDPOINT_URL =
 const Home = ({ title }) => {
   const [activities, setActivities] = useState([]);
   const [reset, setReset] = useState();
-
+  console.log('ENDPOINT_URL', ENDPOINT_URL);
   useEffect(() => {
     const getAll = async () => {
       const result = await axios.get(ENDPOINT_URL + '/activities');
@@ -34,7 +38,6 @@ const Home = ({ title }) => {
     };
     getAll();
   }, [reset]);
-
   const updateActivity = (activity) => {
     const newActivities = activities.map((_activity) => {
       return _activity.id === activity.id
@@ -43,7 +46,6 @@ const Home = ({ title }) => {
     });
     setActivities(newActivities);
   };
-
   const resetArchive = async () => {
     const result = await axios.get(ENDPOINT_URL + '/reset');
     setReset((prev) => !prev);
