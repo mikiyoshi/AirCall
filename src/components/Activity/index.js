@@ -47,7 +47,7 @@ const Activity = ({ title }) => {
     setActivities(newActivities);
   };
   const resetArchive = async () => {
-    const result = await axios.get(ENDPOINT_URL + '/reset');
+    const result = await axios.patch(ENDPOINT_URL + '/reset');
     setReset((prev) => !prev);
   };
   console.log('Activity reset: ', reset);

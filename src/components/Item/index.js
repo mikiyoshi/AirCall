@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
+import Detail from '../../pages/Detail';
 import Button from '../Button';
-import Detail from '../Detail';
 
 // const ENDPOINT_URL =
 //   'https://charming-bat-singlet.cyclic.app/https://cerulean-marlin-wig.cyclic.app';
@@ -10,12 +10,13 @@ import Detail from '../Detail';
 const ENDPOINT_URL = process.env.REACT_APP_DATABASE_URL;
 
 function Item({ activity, updateActivity }) {
-  console.log('Item: ', activity, updateActivity);
+  // console.log('Item: ', activity, updateActivity);
+  console.log('updateActivity: ', updateActivity);
   const detailId = useParams().id;
 
   const changeArchive = async () => {
     const newActivity = { ...activity, is_archived: !activity.is_archived };
-    const result = await axios.post(
+    const result = await axios.patch(
       ENDPOINT_URL + '/activities/' + activity.id,
       newActivity
     );
