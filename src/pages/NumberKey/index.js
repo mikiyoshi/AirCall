@@ -2,7 +2,7 @@ import React from 'react';
 
 function NumberKey() {
   return (
-    <div className="container align-middle">
+    <div className="container-view align-middle">
       <div className="row justify-content-around h1 py-5">
         <p className="badge text-bg-secondary col-4">1</p>
         <p className="badge text-bg-secondary col-4">2</p>

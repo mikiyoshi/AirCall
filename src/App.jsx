@@ -11,7 +11,6 @@ import Inbox from './pages/Inbox/index.js';
 import NumberKey from './pages/NumberKey/index.js';
 import Outbox from './pages/Outbox/index.js';
 import Settings from './pages/Settings/index.js';
-import Test from './pages/Test/index.js';
 import Voicemail from './pages/Voicemail/index.js';
 
 const App = () => {
@@ -19,10 +18,9 @@ const App = () => {
     <BrowserRouter>
       <div className="container p-0">
         <Header />
-        <div className="container-view p-0">
+        <div className="container-view p-0 scroll">
           <Routes>
             <Route path="/" element={<Home title="Home" />} />
-            {/* <Route path="/" element={<Test title="Test" />} /> */}
             <Route path="/Inbox" element={<Inbox title="Inbox" />} />
             <Route path="/AllCalls" element={<AllCalls title="AllCalls" />} />
             <Route path="/Outbox" element={<Outbox title="Outbox" />} />
