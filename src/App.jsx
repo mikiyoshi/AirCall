@@ -21,8 +21,8 @@ const App = () => {
         <Header />
         <div className="container-view p-0">
           <Routes>
-            {/* <Route path="/" element={<Home title="Home" />} /> */}
-            <Route path="/" element={<Test title="Test" />} />
+            <Route path="/" element={<Home title="Home" />} />
+            {/* <Route path="/" element={<Test title="Test" />} /> */}
             <Route path="/Inbox" element={<Inbox title="Inbox" />} />
             <Route path="/AllCalls" element={<AllCalls title="AllCalls" />} />
             <Route path="/Outbox" element={<Outbox title="Outbox" />} />
