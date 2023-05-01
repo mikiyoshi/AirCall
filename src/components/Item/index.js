@@ -135,7 +135,7 @@ function Item({ activity, updateActivity }) {
         </div>
 
         <div className="card-body d-flex justify-content-between">
-          <div className="col h2">
+          <div className="col h2 m-0">
             {activity.call_type === 'answered' ? (
               <i className="bi bi-telephone-inbound-fill text-success"></i>
             ) : activity.call_type === 'voicemail' ? (

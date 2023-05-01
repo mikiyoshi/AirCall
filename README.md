@@ -1,3 +1,55 @@
+# Deploy at Vercel
+[AirCall](https://air-call-mauve.vercel.app/)
+```
+npm i -g vercel@latest
+vercel --version
+```
+- Push at github
+- [Vercel Setting](https://github.com/electerious/Ackee/blob/master/docs/Get%20started.md#2-configure-ackee-1)
+  - Add New `Project`
+  - `AirCall` import from github
+  - Framework Preset `Create React App`
+  - Build and Output Settings
+    - Set the build command: `yarn build`
+    - Set the output directory: `dist`
+  - Environment Variables
+    - `REACT_APP_DATABASE_URL` and URL from `.env` file
+
+
+## HOME
+### Header `Logo` Link
+![home](/docs/home.jpg)
+## INBOX
+### Header `Inbox` Link
+![inbox](/docs/inbox.jpg)
+## ALL CALLS
+### Header `All Calls` Link
+![allcall](/docs/allcall.jpg)
+## OUTBOX
+### Footer `Phone` Icon
+![outbox](/docs/outbox.jpg)
+## ARCHIVE
+### Footer `Person` Icon
+![archive](/docs/archive.jpg)
+## NUMBER
+### Footer `Grid` Icon
+![number](/docs/number.jpg)
+## SETTING
+### Footer `Gear` Icon
+![setting](/docs/setting.jpg)
+## VOICEMAIL
+### Footer `Record` Icon
+![voicemail](/docs/voicemail.jpg)
+## DETAIL
+### Click at each
+![detail](/docs/detail.jpg)
+
+
+# Node
+```
+nvm install v14
+```
+
 ## Summary
 
 The goal of this test is to make you code a small ReactJS app. We have prepared a skeleton app for you, but please change whatever you want (CSS files, HTML structure, JS structure, etc).
@@ -64,25 +116,3 @@ The API is hosted on a free server, which is why the first time you call the API
 - **duration** - duration of a call (in seconds)
 - **is_archived** - call is archived or not
 - **call_type** - can be a `missed`, `answered` or `voicemail` call.
-
-# Node
-```
-nvm install v14
-```
-
-# Vercel
-[AirCall](https://air-call-mauve.vercel.app/)
-```
-npm i -g vercel@latest
-vercel --version
-```
-- Push at github
-- [Vercel Setting](https://github.com/electerious/Ackee/blob/master/docs/Get%20started.md#2-configure-ackee-1)
-  - Add New `Project`
-  - `AirCall` import from github
-  - Framework Preset `Create React App`
-  - Build and Output Settings
-    - Set the build command: `yarn build`
-    - Set the output directory: `dist`
-  - Environment Variables
-    - `REACT_APP_DATABASE_URL` and URL from `.env` file
