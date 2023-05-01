@@ -26,7 +26,7 @@ function Item({ activity, updateActivity }) {
   return detailId ? (
     <div className="row">
       <div className="container-fluid text-center d-grid gap-3">
-        <div className="display-1">
+        <div className="display-4">
           {activity.call_type === 'answered' ? (
             <i className="bi bi-telephone-inbound-fill text-success"></i>
           ) : activity.call_type === 'voicemail' ? (
@@ -36,11 +36,11 @@ function Item({ activity, updateActivity }) {
           )}
         </div>
         <div>
-          <strong className="h3">
+          <strong className="h4">
             <span className="fw-bold">From: </span>
             {activity.from}
           </strong>
-          <p className="h3">
+          <p className="h4 m-0">
             {activity.call_type === 'answered'
               ? `for ${activity.to}`
               : activity.call_type === 'voicemail'
@@ -60,8 +60,8 @@ function Item({ activity, updateActivity }) {
         )}
 
         <div className="card text-start mb-1">
-          <div className="card-body">
-            <p>
+          <div className="card-body row">
+            <p className="col-6">
               <span className="fw-bold">Time: </span>
               {new Date(activity.created_at)
                 .toLocaleTimeString()
@@ -78,23 +78,23 @@ function Item({ activity, updateActivity }) {
                   : 'PM'}
               </span>
             </p>
-            <p className="">
+            <p className="col-6">
               <span className="fw-bold">Date: </span>
               {new Date(activity.created_at).toDateString()}
             </p>
-            <p className="">
+            <p className="col-6">
               <span className="fw-bold">Call Type: </span>
               {activity.call_type}
             </p>
-            <p className="">
+            <p className="col-6">
               <span className="fw-bold">Direction: </span>
               {activity.direction}
             </p>
-            <p className="">
+            <p className="col-6">
               <span className="fw-bold">Duration: </span>
               {activity.duration}
             </p>
-            <p className="">
+            <p className="col-6">
               <span className="fw-bold">Via: </span>
               {activity.via}
             </p>

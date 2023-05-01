@@ -56,10 +56,10 @@ const Activity = ({ title }) => {
       <main className="flex-shrink-0">
         <div className="">
           <div
-            className="alert alert-light border border-secondary  d-flex justify-content-between"
+            className="alert alert-light border border-secondary d-flex justify-content-between"
             role="alert"
           >
-            <div className="h2">
+            <div className="h2 m-0">
               <i class="bi bi-archive-fill"></i>
             </div>
 
