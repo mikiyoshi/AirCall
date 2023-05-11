@@ -3,3 +3,4 @@ yarn-error.log
 backup[0-9][0-9]
 .vscode
 .DS_Store
+package[0-9][0-9].json

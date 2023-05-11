@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import Outbox from './pages/Outbox';
 import Archive from './pages/Archive';
 import NumberKey from './pages/NumberKey';
 import Outbox from './pages/Outbox';

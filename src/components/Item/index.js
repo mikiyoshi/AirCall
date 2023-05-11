@@ -4,14 +4,10 @@ import { Link, useParams } from 'react-router-dom';
 import Detail from '../../pages/Detail';
 import Button from '../Button';
 
-// const ENDPOINT_URL =
-//   'https://charming-bat-singlet.cyclic.app/https://cerulean-marlin-wig.cyclic.app';
-
 const ENDPOINT_URL = process.env.REACT_APP_DATABASE_URL;
 
 function Item({ activity, updateActivity }) {
-  // console.log('Item: ', activity, updateActivity);
-  console.log('updateActivity: ', updateActivity);
+  // console.log('updateActivity: ', updateActivity);
   const detailId = useParams().id;
 
   const changeArchive = async () => {
@@ -30,9 +26,9 @@ function Item({ activity, updateActivity }) {
           {activity.call_type === 'answered' ? (
             <i className="bi bi-telephone-inbound-fill text-success"></i>
           ) : activity.call_type === 'voicemail' ? (
-            <i class="bi bi-voicemail"></i>
+            <i className="bi bi-voicemail"></i>
           ) : (
-            <i class="bi bi-telephone-x-fill text-danger"></i>
+            <i className="bi bi-telephone-x-fill text-danger"></i>
           )}
         </div>
         <div>
@@ -49,11 +45,11 @@ function Item({ activity, updateActivity }) {
           </p>
         </div>
         <div className="btn btn-primary">
-          <i class="bi bi-telephone-fill"></i> Call
+          <i className="bi bi-telephone-fill"></i> Call
         </div>
         {activity.call_type === 'voicemail' ? (
           <div className="btn btn-primary">
-            <i class="bi bi-voicemail"></i> Voicemail
+            <i className="bi bi-voicemail"></i> Voicemail
           </div>
         ) : (
           ''
@@ -104,7 +100,7 @@ function Item({ activity, updateActivity }) {
             </p>
           </div>
         </div>
-        <div class="btn-group" role="group" aria-label="Basic example">
+        <div className="btn-group" role="group" aria-label="Basic example">
           <Button
             key={activity.id}
             activity={activity}
@@ -139,9 +135,9 @@ function Item({ activity, updateActivity }) {
             {activity.call_type === 'answered' ? (
               <i className="bi bi-telephone-inbound-fill text-success"></i>
             ) : activity.call_type === 'voicemail' ? (
-              <i class="bi bi-voicemail"></i>
+              <i className="bi bi-voicemail"></i>
             ) : (
-              <i class="bi bi-telephone-x-fill text-danger"></i>
+              <i className="bi bi-telephone-x-fill text-danger"></i>
             )}
           </div>
           <div className="col-10">

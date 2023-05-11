@@ -17,7 +17,7 @@ function NumberKey() {
         <p className="badge text-bg-secondary col-4">0</p>
         <p className="badge text-bg-secondary col-4">#</p>
         <p className="badge text-bg-success col-4">
-          <i class="bi bi-telephone-fill"></i>
+          <i className="bi bi-telephone-fill"></i>
         </p>
       </div>
     </div>

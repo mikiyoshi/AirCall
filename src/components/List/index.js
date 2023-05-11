@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 import Item from '../Item';
 
 function List({ activities, updateActivity, title }) {
-  console.log('List: ', activities, updateActivity, title);
+  // console.log('List: ', activities, updateActivity, title);
   const detailId = useParams().id;
-  console.log('detailId: ', detailId);
+  // console.log('detailId: ', detailId);
   return (
     <div>
       {detailId
@@ -46,7 +46,13 @@ function List({ activities, updateActivity, title }) {
                 updateActivity={updateActivity}
                 key={activity.id}
               />
-            ) : title === 'Home' || title === 'AllCalls' ? (
+            ) : activity.is_archived == false && title === 'Home' ? (
+              <Item
+                activity={activity}
+                updateActivity={updateActivity}
+                key={activity.id}
+              />
+            ) : title === 'AllCalls' ? (
               <Item
                 activity={activity}
                 updateActivity={updateActivity}

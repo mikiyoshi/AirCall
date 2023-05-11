@@ -2,38 +2,23 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import List from '../List';
 
-// const ENDPOINT_URL =
-//   'https://charming-bat-singlet.cyclic.app/https://cerulean-marlin-wig.cyclic.app';
-
 const ENDPOINT_URL = process.env.REACT_APP_DATABASE_URL;
-
-// console.log('ENDPOINT_URL', ENDPOINT_URL);
-
-// const activityApi = {
-//   async getAll() {
-//     const result = await axios.get(ENDPOINT_URL + '/activities');
-//     console.log('getAll: ', result);
-//     return result.data;
-//   },
-//   async post(todo) {
-//     const result = await axios.post(ENDPOINT_URL + '/' + todo.id, todo);
-//     return result.data;
-//   },
-// };
-// activityApi.getAll();
 
 const Activity = ({ title }) => {
   const [activities, setActivities] = useState([]);
   const [reset, setReset] = useState();
-  console.log('ENDPOINT_URL', ENDPOINT_URL);
+  // console.log('ENDPOINT_URL', ENDPOINT_URL);
   useEffect(() => {
     const getAll = async () => {
       const result = await axios.get(ENDPOINT_URL + '/activities');
-      console.log('getAll: ', result.data);
+      // console.log('getAll: ', result.data);
       const newReset = result.data.some((activity) => {
-        return activity.is_archived === true;
+        if (activity.from !== undefined && activity.to !== undefined) {
+          return activity.is_archived === true;
+        }
       });
       setReset(newReset);
+      // console.log('newReset', newReset);
       return setActivities(result.data);
     };
     getAll();
@@ -49,8 +34,35 @@ const Activity = ({ title }) => {
   const resetArchive = async () => {
     const result = await axios.patch(ENDPOINT_URL + '/reset');
     setReset((prev) => !prev);
+    console.log('resetArchive');
   };
-  console.log('Activity reset: ', reset);
+  // console.log('Activity reset: ', reset);
+
+  const archiveAllCalls = async () => {
+    const result = await axios.get(ENDPOINT_URL + '/activities');
+    // console.log('allCall: ', result.data);
+
+    // async await can't use in async function
+    archiveEachCall(result.data);
+  };
+
+  const archiveEachCall = async (activities) => {
+    // console.log('activities', activities);
+    const newActivities = activities.map(async (activity) => {
+      if (activity.from !== undefined && activity.to !== undefined) {
+        // console.log('activity.call_type', activity.call_type);
+        const newActivity = { ...activity, is_archived: true };
+        const eachResult = await axios.patch(
+          ENDPOINT_URL + '/activities/' + activity.id,
+          newActivity
+        );
+        // updateActivity(eachResult.data);
+      }
+    });
+
+    // when update 'reset' state, one time rendering by useEffect
+    resetArchive();
+  };
   return (
     <div className="container-view">
       <main className="flex-shrink-0">
@@ -60,27 +72,43 @@ const Activity = ({ title }) => {
             role="alert"
           >
             <div className="h2 m-0">
-              <i class="bi bi-archive-fill"></i>
+              <i className="bi bi-archive-fill"></i>
             </div>
 
             <div>
               <strong className="h6">{title}</strong>
             </div>
           </div>
-          {title === 'Settings' ? (
-            reset === true ? (
-              <div className="d-grid mb-3">
+          {title === 'Settings' && reset === true ? (
+            <div className="d-grid mb-3">
+              <button
+                type="button"
+                className="btn btn-success"
+                onClick={resetArchive}
+              >
+                Reset Archive
+              </button>
+            </div>
+          ) : title === 'Home' ? (
+            <div className="d-grid mb-3">
+              {reset ? (
                 <button
                   type="button"
-                  class="btn btn-success"
+                  className="btn btn-success"
                   onClick={resetArchive}
                 >
                   Reset Archive
                 </button>
-              </div>
-            ) : (
-              ''
-            )
+              ) : (
+                <button
+                  type="button"
+                  className="btn btn-success"
+                  onClick={archiveAllCalls}
+                >
+                  Archive All Calls
+                </button>
+              )}
+            </div>
           ) : (
             ''
           )}
