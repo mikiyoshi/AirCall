@@ -111,7 +111,7 @@ function Item({ activity, updateActivity }) {
     </div>
   ) : (
     <div className="card mb-3" key={activity.id}>
-      <Link to={`/Detail/${activity.id}`} component={Detail}>
+      <Link to={`/Detail/${activity.id}`}>
         <div className="card-header text-center">
           {new Date(activity.created_at)
             .toLocaleTimeString()

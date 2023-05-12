@@ -10,19 +10,19 @@ function Footer() {
   return (
     <footer className="footer mt-auto py-3 bg-light">
       <div className="d-flex justify-content-between px-3">
-        <NavLink to="/Outbox" component={Outbox} className="nav-link">
+        <NavLink to="/Outbox" className="nav-link">
           <i className="bi bi-telephone-fill fs-5"></i>
         </NavLink>
-        <NavLink to="/Archive" component={Archive} className="nav-link">
+        <NavLink to="/Archive" className="nav-link">
           <i className="bi bi-person-circle fs-5"></i>
         </NavLink>
-        <NavLink to="/NumberKey" component={NumberKey} className="nav-link">
+        <NavLink to="/NumberKey" className="nav-link">
           <i className="bi bi-grid-3x3-gap-fill fs-1"></i>
         </NavLink>
-        <NavLink to="/Settings" component={Settings} className="nav-link">
+        <NavLink to="/Settings" className="nav-link">
           <i className="bi bi-gear-fill fs-5"></i>
         </NavLink>
-        <NavLink to="/Voicemail" component={Voicemail} className="nav-link">
+        <NavLink to="/Voicemail" className="nav-link">
           <i className="bi bi-record-circle fs-5"></i>
         </NavLink>
       </div>

@@ -61,7 +61,8 @@ const Activity = ({ title }) => {
     });
 
     // when update 'reset' state, one time rendering by useEffect
-    resetArchive();
+    // resetArchive();
+    setReset((prev) => !prev);
   };
   return (
     <div className="container-view">

@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className="p-0">
       <nav id="navbar-example2" className="navbar bg-body-tertiary px-3 mb-3">
-        <NavLink to="/" component={Home} className="navbar-brand">
+        <NavLink to="/" className="navbar-brand">
           <svg
             width="486px"
             height="168px"
@@ -70,17 +70,12 @@ const Header = () => {
         </NavLink>
         <ul className="nav nav-pills">
           <li className="nav-item">
-            <NavLink
-              to="/Inbox"
-              component={Inbox}
-              className="nav-link"
-              aria-current="page"
-            >
+            <NavLink to="/Inbox" className="nav-link" aria-current="page">
               Inbox
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/AllCalls" component={AllCalls} className="nav-link">
+            <NavLink to="/AllCalls" className="nav-link">
               All Calls
             </NavLink>
           </li>
